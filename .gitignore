@@ -1,8 +1,11 @@
 # Build output
-/build/
-/target/
-/dist/
+*/build/
+*/web/
+*/target/
+*/dist/
 *.class
 
 # NetBeans
-nbproject/private/
+*/nbproject/private/
+
+*/node_modules
