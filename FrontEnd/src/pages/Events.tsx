@@ -129,7 +129,7 @@ export default function Events() {
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch('http://localhost:3000/api/events', {
+      const response = await fetch('/api/events', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -169,7 +169,7 @@ export default function Events() {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        `http://localhost:3000/api/events/detail?id=${eventId}`,
+        `/api/events/detail?id=${eventId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -220,7 +220,7 @@ export default function Events() {
       const body = new URLSearchParams()
       body.append('eventId', String(eventId))
 
-      const res = await fetch('http://localhost:3000/api/event/disable', {
+      const res = await fetch('/api/event/disable', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,

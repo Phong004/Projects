@@ -121,7 +121,7 @@ export function EventDetailModal({
       try {
         // 1) Gọi API lấy tất cả ghế theo areaId + eventId (để vẽ SeatGrid)
         const seatsRes = await fetch(
-          `http://localhost:3000/api/seats?areaId=${event.areaId}&eventId=${event.eventId}`,
+          `/api/seats?areaId=${event.areaId}&eventId=${event.eventId}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export function EventDetailModal({
          */
         const [vipRes, standardRes] = await Promise.all([
           fetch(
-            `http://localhost:3000/api/seats?areaId=${event.areaId}&eventId=${event.eventId}&seatType=VIP`,
+            `/api/seats?areaId=${event.areaId}&eventId=${event.eventId}&seatType=VIP`,
             {
               headers: {
                 'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export function EventDetailModal({
             },
           ),
           fetch(
-            `http://localhost:3000/api/seats?areaId=${event.areaId}&eventId=${event.eventId}&seatType=STANDARD`,
+            `/api/seats?areaId=${event.areaId}&eventId=${event.eventId}&seatType=STANDARD`,
             {
               headers: {
                 'Content-Type': 'application/json',

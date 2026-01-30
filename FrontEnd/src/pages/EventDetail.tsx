@@ -100,11 +100,11 @@ export default function EventDetail() {
       try {
         /**
          * Gọi API lấy chi tiết event:
-         * - URL hiện đang viết cứng: http://localhost:3000/api/events/detail?id=...
+         * - URL hiện đang viết cứng: /api/events/detail?id=...
          * - headers có Authorization Bearer token để backend xác thực
          */
         const response = await fetch(
-          `http://localhost:3000/api/events/detail?id=${id}`,
+          `/api/events/detail?id=${id}`,
           {
             headers: {
               'Content-Type': 'application/json',

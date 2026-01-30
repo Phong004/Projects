@@ -141,7 +141,7 @@ export default function EventEdit() {
         const token = localStorage.getItem('token')
 
         // gọi API lấy danh sách event requests của user hiện tại
-        const response = await fetch('http://localhost:3000/api/event-requests/my', {
+        const response = await fetch('/api/event-requests/my', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -217,7 +217,7 @@ export default function EventEdit() {
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch(`http://localhost:3000/api/events/detail?id=${id}`, {
+      const response = await fetch(`/api/events/detail?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -690,7 +690,7 @@ export default function EventEdit() {
       console.log('Updating event with:', requestBody)
 
       // ===== CALL API UPDATE =====
-      const response = await fetch(`http://localhost:3000/api/events/update-details`, {
+      const response = await fetch(`/api/events/update-details`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

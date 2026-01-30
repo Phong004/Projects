@@ -170,7 +170,7 @@ export function ProcessRequestModal({
        * /api/areas/free?startTime=...&endTime=...
        * encodeURIComponent để tránh lỗi ký tự đặc biệt (space, :)
        */
-      const url = `http://localhost:3000/api/areas/free?startTime=${encodeURIComponent(
+      const url = `/api/areas/free?startTime=${encodeURIComponent(
         startTime
       )}&endTime=${encodeURIComponent(endTime)}`
 

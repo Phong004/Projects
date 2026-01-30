@@ -201,8 +201,8 @@ export default function EventRequests() {
 
       // Staff thấy tất cả requests, Organizer chỉ thấy của mình
       const endpoint = isStaff
-        ? 'http://localhost:3000/api/staff/event-requests'
-        : 'http://localhost:3000/api/event-requests/my'
+        ? '/api/staff/event-requests'
+        : '/api/event-requests/my'
 
       // Call API lấy request list
       const response = await fetch(endpoint, {
@@ -216,7 +216,7 @@ export default function EventRequests() {
         console.log('Event requests data:', data)
 
         // ===== BƯỚC 2: Fetch events để lấy bannerUrl (mapping eventId -> bannerUrl) =====
-        const eventsResponse = await fetch('http://localhost:3000/api/events', {
+        const eventsResponse = await fetch('/api/events', {
           headers: {
             Authorization: `Bearer ${token}`,
             'ngrok-skip-browser-warning': 'true',
@@ -407,7 +407,7 @@ export default function EventRequests() {
 
       // Call API process
       const response = await fetch(
-        'http://localhost:3000/api/event-requests/process',
+        '/api/event-requests/process',
         {
           method: 'POST',
           headers: {

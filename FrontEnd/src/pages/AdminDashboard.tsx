@@ -67,12 +67,12 @@ export default function AdminDashboard() {
 
   const fetchUsers = async () => {
     // Fetch list of users (ADMIN-managed) from backend
-    // GET http://localhost:3000/api/admin/users
+    // GET /api/admin/users
     // Uses stored `token` for Authorization header (Bearer)
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch('http://localhost:3000/api/users/staff-organizer', {
+      const response = await fetch('/api/users/staff-organizer', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -126,12 +126,12 @@ export default function AdminDashboard() {
 
   const handleCreateUser = async (data: CreateUserRequest) => {
     // Create a new account via Admin API
-    // POST http://localhost:3000/api/admin/create-account
+    // POST /api/admin/create-account
     // Expects body: { fullName, phone, email, password, role }
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch('http://localhost:3000/api/admin/create-account', {
+      const response = await fetch('/api/admin/create-account', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -160,7 +160,7 @@ export default function AdminDashboard() {
 
   const handleUpdateUser = async (data: UpdateUserRequest) => {
     // Update user using the same Admin endpoint (PUT)
-    // PUT http://localhost:3000/api/admin/create-account
+    // PUT /api/admin/create-account
     // Body: { id, fullName, phone, role, status, password }
     try {
       const token = localStorage.getItem('token')
@@ -175,7 +175,7 @@ export default function AdminDashboard() {
       // include password if present
       if ((data as any).password) payload.password = (data as any).password
 
-      const response = await fetch('http://localhost:3000/api/admin/create-account', {
+      const response = await fetch('/api/admin/create-account', {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -202,13 +202,13 @@ export default function AdminDashboard() {
 
   const performDeleteUser = async (userId: number) => {
     // Soft-delete a user using the admin endpoint (DELETE)
-    // DELETE http://localhost:3000/api/admin/create-account
+    // DELETE /api/admin/create-account
     // Body: { id }
     // On success refetches the user list
     try {
       const token = localStorage.getItem('token')
       // Use query param for DELETE: /api/admin/create-account?id=1
-      const url = `http://localhost:3000/api/admin/create-account?id=${encodeURIComponent(userId)}`
+      const url = `/api/admin/create-account?id=${encodeURIComponent(userId)}`
       const response = await fetch(url, {
         method: 'DELETE',
         headers: {

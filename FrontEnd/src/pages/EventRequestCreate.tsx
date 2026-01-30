@@ -213,7 +213,7 @@ export default function EventRequestCreate() {
       console.log('Submitting event request:', requestBody)
 
       // ===== Gọi API tạo event request =====
-      const response = await fetch('http://localhost:3000/api/event-requests', {
+      const response = await fetch('/api/event-requests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
