@@ -1,0 +1,2 @@
+*.sh text eof=lf
+*.sql text eof=lf
